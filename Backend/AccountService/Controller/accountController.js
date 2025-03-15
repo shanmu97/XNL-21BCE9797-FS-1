@@ -25,7 +25,7 @@ const getAccountDetails = async (req, res) => {
 
     if (!account) return res.status(404).json({ message: "Account not found" });
 
-    const transactionServiceUrl = "https://xnl-21bce9797-fs-1-1.onrender.com/transaction/user";
+    const transactionServiceUrl = "http://localhost:5002/transaction/user";
     const response = await axios.get(transactionServiceUrl, {
       headers: { Authorization: req.headers.authorization },
     });

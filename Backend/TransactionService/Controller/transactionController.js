@@ -20,7 +20,7 @@ const updateAccountBalance = async (token, newBalance) => {
     try {
 
         const response = await axios.put(
-            "https://xnl-21bce9797-fs-1-2.onrender.com/account/",
+            "http://localhost:5003/account/",
             { balance: newBalance },
             { headers: { Authorization: `Bearer ${token}` } }
         );
