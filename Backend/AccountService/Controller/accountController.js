@@ -25,7 +25,7 @@ const getAccountDetails = async (req, res) => {
 
     if (!account) return res.status(404).json({ message: "Account not found" });
 
-    const transactionServiceUrl = "http://localhost:5002/transaction/user";
+    const transactionServiceUrl = "https://xnl-21bce9797-fs-1-1.onrender.com/transaction/user";
     const response = await axios.get(transactionServiceUrl, {
       headers: { Authorization: req.headers.authorization },
     });
@@ -38,31 +38,29 @@ const getAccountDetails = async (req, res) => {
 
 const updateAccountBalance = async (req, res) => {
     try {
-        console.log("🟢 Received update balance request:", req.body);
-
-        const userId = req.user.id; // Ensure user is authenticated
+        const userId = req.user.id; 
         const { balance } = req.body;
 
         if (balance === undefined) {
-            console.log("🔴 Balance is undefined");
+            console.log(" Balance is undefined");
             return res.status(400).json({ message: "Balance is required" });
         }
 
         const account = await Account.findOneAndUpdate(
-            { userId },  // Find the account using userId
-            { balance },  // Update balance
-            { new: true } // Return updated account
+            { userId },  
+            { balance },  
+            { new: true }
         );
 
         if (!account) {
-            console.log("🔴 Account not found for user:", userId);
+            console.log(" Account not found for user:", userId);
             return res.status(404).json({ message: "Account not found" });
         }
 
-        console.log("🟢 Balance updated successfully:", account.balance);
+        console.log(" Balance updated successfully:", account.balance);
         res.json(account);
     } catch (error) {
-        console.error("🔴 Failed to update balance:", error.message);
+        console.error(" Failed to update balance:", error.message);
         res.status(500).json({ message: "Failed to update balance", error: error.message });
     }
 };
