@@ -77,6 +77,7 @@ The frontend is built using **React.js** and follows a component-based architect
 - Axios (API Requests)
 - WebSockets (Real-time updates)
 - Tailwind CSS (Styling)
+- Vercel (Deployment)
 
 ### Backend
 - Node.js & Express.js (API Server)
@@ -85,6 +86,7 @@ The frontend is built using **React.js** and follows a component-based architect
 - WebSockets (Real-time communication)
 - Docker (Containerization)
 - RabbitMQ/Kafka (Optional - for message queueing between services)
+- Render (Deployment)
 
 ---
 
